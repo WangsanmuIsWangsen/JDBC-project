@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<SplitPane fx:id="split_info" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.info">
+   <items>
+      <SplitPane fx:id="split_reg" dividerPositions="0.12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#on_mouse_entered" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+         <items>
+            <AnchorPane fx:id="anchorpane_up" minHeight="0.0" minWidth="0.0" prefHeight="58.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="label_name" layoutX="14.0" layoutY="15.0" text="员工姓名：" />
+                  <Button fx:id="btn_exit" layoutX="525.0" mnemonicParsing="false" onAction="#on_btn_exit_clicked" prefHeight="45.0" prefWidth="78.0" text="退出">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_sign" layoutX="455.0" layoutY="-2.0" mnemonicParsing="false" onAction="#on_btn_sign_clicked" prefHeight="51.0" prefWidth="70.0" text="打卡">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="anchorpane_down" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane fx:id="tabpane_reg" layoutY="1.0" prefHeight="331.0" prefWidth="598.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab fx:id="tab_base" text="个人基本信息">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="598.0">
+                                 <children>
+                                    <TableView fx:id="tableview_base" layoutX="2.0" layoutY="-1.0" prefHeight="319.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn fx:id="column_id" prefWidth="54.0" text="员工编号" />
+                                        <TableColumn fx:id="column_sex" prefWidth="28.0" text="性别" />
+                                          <TableColumn fx:id="column_age" prefWidth="29.0" text="年龄" />
+                                          <TableColumn fx:id="column_native" prefWidth="36.0" text="籍贯" />
+                                          <TableColumn fx:id="column_telephone" prefWidth="86.0" text="电话号码" />
+                                          <TableColumn fx:id="column_typeOfWork" prefWidth="43.0" text="工种" />
+                                          <TableColumn fx:id="column_level" prefWidth="45.0" text="等级" />
+                                          <TableColumn fx:id="column_inTime" prefWidth="155.0" text="入职时间" />
+                                          <TableColumn fx:id="column_workAge" prefWidth="29.0" text="工龄" />
+                                          <TableColumn fx:id="column_department" prefWidth="92.0" text="所属部门" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tab_attendance" text="个人考勤信息">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="tableview_attendance" layoutY="31.0" prefHeight="273.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn fx:id="column_attendanceOfHis" prefWidth="599.0" text="考勤历史信息" />
+                                      </columns>
+                                    </TableView>
+                                    <DatePicker fx:id="attendance_timebegin" layoutX="75.0" prefHeight="28.0" prefWidth="179.0" />
+                                    <Label layoutX="20.0" layoutY="7.0" text="开始时间" />
+                                    <DatePicker fx:id="attendance_timeend" layoutX="397.0" prefHeight="28.0" prefWidth="193.0" />
+                                    <Label layoutX="340.0" layoutY="7.0" text="结束时间" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tab_allowance" text="个人津贴信息">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="8.0" text="开始时间" />
+                                    <Label layoutX="286.0" layoutY="8.0" text="结束时间" />
+                                    <DatePicker fx:id="allowance_timebegin" layoutX="77.0" layoutY="4.0" />
+                                    <DatePicker fx:id="allowance_timeend" layoutX="341.0" layoutY="4.0" />
+                                    <TableView fx:id="tableview_allowence" layoutY="26.0" prefHeight="279.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn fx:id="column_overType" prefWidth="152.0" text="加班类别" />
+                                          <TableColumn fx:id="column_overTime" prefWidth="264.0" text="加班时间" />
+                                          <TableColumn fx:id="column_overDay" minWidth="0.0" prefWidth="95.0" text="加班天数" />
+                                          <TableColumn fx:id="column_subsidy" prefWidth="88.0" text="加班津贴" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab fx:id="tab_salary" text="个人工资信息">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="32.0" layoutY="7.0" text="查询日期" />
+                                    <TabPane layoutX="1.0" layoutY="26.0" prefHeight="280.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                                      <tabs>
+                                        <Tab fx:id="tab_salaryYear" text="年工资报表">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TableView fx:id="tableview_salaryOfYear" prefHeight="256.0" prefWidth="600.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="column_month" prefWidth="84.0" text="月份" />
+                                                          <TableColumn fx:id="column_monthSalary" prefWidth="515.0" text="月工资" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                        <Tab fx:id="tab_salaryMonth" text="月工资报表">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TableView fx:id="tableview_salaryOfMonth" layoutX="-1.0" prefHeight="256.0" prefWidth="600.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="column_baseSalaryOneMonth" prefWidth="75.0" text="月基本工资" />
+                                                          <TableColumn fx:id="column_numOfAbsence" prefWidth="75.0" text="缺勤次数" />
+                                                            <TableColumn fx:id="column_trueBaseSalary" prefWidth="85.0" text="实际基本工资" />
+                                                            <TableColumn fx:id="column_overAllowence" prefWidth="75.0" text="加班津贴" />
+                                                            <TableColumn fx:id="column_allMonthSalary" prefWidth="75.0" text="月工资合计" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                    <DatePicker fx:id="salary_time" layoutX="89.0" layoutY="3.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </items>
+</SplitPane>
